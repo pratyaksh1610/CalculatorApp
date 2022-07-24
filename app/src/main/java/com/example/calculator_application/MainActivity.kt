@@ -16,47 +16,20 @@ import kotlin.math.sqrt
 
 class MainActivity : AppCompatActivity() {
 
-    private val factorials = arrayOf(
-        "0",
-        "1",
-        "1",
-        "2",
-        "6",
-        "24",
-        "120",
-        "720",
-        "5040",
-        "40320",
-        "362880",
-        "3628800",
-        "39916800",
-        "479001600",
-        "6227020800",
-        "87178291200",
-        "1307674368000",
-        "20922789888000",
-        "355687428096000",
-        "6402373705728000",
-        "121645100408832000",
-        "2432902008176640000",
-    )
-
     @SuppressLint("SetTextI18n", "ResourceAsColor")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        etResult.setTextColor(Color.GRAY)
+
 
         /* handling clicks */
-        etResult.setTextColor(Color.GRAY)
+
         tvC.setOnClickListener {
-            tvFactorial.setBackgroundColor(Color.parseColor("#242530"))
-            etResult.text = null
-            tvResult.text = null
+            clear()
         }
-
-        //etResult.setText("tan(sin(90))")
-
 
         tvOpenBracket.setOnClickListener {
             etResult.text = etResult.text.append(resources.getString(R.string.opening_bracket))
@@ -96,40 +69,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         imEqual.setOnClickListener {
-            //regular expression for 1/0, zero divide error
-            if ((etResult.text.toString().length == 1 && etResult.text.toString()
-                    .first() == '(') || etResult.text.toString().isEmpty()
-            ) {
-                tvResult.text = null
-            } else {
-                try {
-                    val input = ExpressionBuilder(etResult.text.toString()).build()
-                    val output = input.evaluate()
-                    val longOutput = output.toLong()
-                    if (output == longOutput.toDouble()) {
-                        tvResult.text = longOutput.toString()
-                    } else {
-                        tvResult.text = output.toString()
-                    }
-                } catch (e: EmptyStackException) {
-                    tvResult.text = "Error"
-                } catch (e: IllegalFormatException) {
-                    tvResult.text = "Error"
-                } catch (e: NumberFormatException) {
-                    tvResult.text = "Error"
-                } catch (e: IllegalArgumentException) {
-                    tvResult.text = "Error"
-                } catch (e: NumberFormatException) {
-                    tvResult.text = "Error"
-                } catch (e: ArithmeticException) {
-                    tvResult.text = "Error"
-                }
-            }
-
-//
+            calculate()
         }
-
-//        demo.setOnClickListener() { requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE }
 
         tvPercent.setOnClickListener {
             try {
@@ -156,6 +97,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        //Operator Listeners
         tvDivide.setOnClickListener {
             if (etResult.text.toString().isNotEmpty())
                 if (checkFunc(etResult.text.toString()))
@@ -189,10 +131,10 @@ class MainActivity : AppCompatActivity() {
                         .last() != ')' && etResult.text.toString().last() != '('
                 )
                     etResult.text = etResult.text.append(resources.getString(R.string.decimal_text))
-//                else return@setOnClickListener
         }
 
-        //handling clicks of digits
+
+        //Number Listeners
         tv7.setOnClickListener {
             etResult.text = etResult.text.append(resources.getString(R.string.seven_text))
         }
@@ -224,16 +166,20 @@ class MainActivity : AppCompatActivity() {
             etResult.text = etResult.text.append(resources.getString(R.string.zero_text))
         }
 
+        //Trigonometric functions
         tvSin.setOnClickListener {
             etResult.text = etResult.text.append(resources.getString((R.string.sin_operation)))
         }
         tvCos.setOnClickListener {
             etResult.text = etResult.text.append(resources.getString((R.string.cos_operation)))
         }
+        //in radians sin cos tan
 
         tvTan.setOnClickListener {
             etResult.text = etResult.text.append(resources.getString((R.string.tan_operation)))
         }
+
+        //Other functions
         tvSqrt.setOnClickListener {
             etResult.text = etResult.text.append(resources.getString((R.string.sqrt_operation)))
         }
@@ -246,10 +192,10 @@ class MainActivity : AppCompatActivity() {
                 if (etResult.text.toString().isDigitsOnly()) {
                     tvFactorial.setBackgroundColor(Color.BLUE)
                     val x = etResult.text.toString().toLong()
-                    if (x <= 20 && x.toString().isDigitsOnly()) {
-                        tvResult.text = factorials[x.toInt()]
+                    if (x <= 23 && x.toString().isDigitsOnly()) {
+                        tvResult.text = getFactorial(x)
                     } else {
-                        tvResult.text = "Error"
+                        tvResult.text = "Value too large"
                     }
                 }
                 tvFactorial.setBackgroundColor((Color.parseColor("#ffbb00")))
@@ -313,8 +259,44 @@ class MainActivity : AppCompatActivity() {
                 tvResult.text = "Error"
             }
         }
+    }
 
+    private fun clear() {
+        tvFactorial.setBackgroundColor(Color.parseColor("#242530"))
+        etResult.text = null
+        tvResult.text = null
+    }
 
+    @SuppressLint("SetTextI18n")
+    private fun calculate() {
+        if ((etResult.text.toString().length == 1 && etResult.text.toString()
+                .first() == '(') || etResult.text.toString().isEmpty()
+        ) {
+            tvResult.text = null
+        } else {
+            try {
+                val input = ExpressionBuilder(etResult.text.toString()).build()
+                val output = input.evaluate()
+                val longOutput = output.toLong()
+                if (output == longOutput.toDouble()) {
+                    tvResult.text = longOutput.toString()
+                } else {
+                    tvResult.text = output.toString()
+                }
+            } catch (e: EmptyStackException) {
+                tvResult.text = "Error"
+            } catch (e: IllegalFormatException) {
+                tvResult.text = "Error"
+            } catch (e: NumberFormatException) {
+                tvResult.text = "Error"
+            } catch (e: IllegalArgumentException) {
+                tvResult.text = "Error"
+            } catch (e: NumberFormatException) {
+                tvResult.text = "Error"
+            } catch (e: ArithmeticException) {
+                tvResult.text = "Error"
+            }
+        }
     }
 }
 
@@ -340,3 +322,33 @@ private fun isPrime(n: Int): Boolean {
     return true
 }
 
+private fun getFactorial(x: Long): String {
+    //array for factorial calculation
+    val factorials = arrayOf(
+        "0",
+        "1",
+        "1",
+        "2",
+        "6",
+        "24",
+        "120",
+        "720",
+        "5040",
+        "40320",
+        "362880",
+        "3628800",
+        "39916800",
+        "479001600",
+        "6227020800",
+        "87178291200",
+        "1307674368000",
+        "20922789888000",
+        "355687428096000",
+        "6402373705728000",
+        "121645100408832000",
+        "2432902008176640000",
+        "1124000727777607680000",
+        "25852016738884976640000"
+    )
+    return factorials[x.toInt()]
+}

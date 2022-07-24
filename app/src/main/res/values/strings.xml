@@ -1,39 +1,39 @@
 <resources>
-    <string name="app_name">Calculator_Application</string>
+    <string name="app_name">"CalcApp"</string>
     <string name="e_toPower_x">e<sup>x</sup></string>
     <string name="x_square">x<sup>2</sup></string>
-    <string name="cube_root">cbrt</string>
+    <string name="cube_root">"cbrt"</string>
     <string name="ten_toPowerX">10<sup>x</sup></string>
 
-    <string name="seven_text">7</string>
-    <string name="eight_text">8</string>
-    <string name="nine_text">9</string>
-    <string name="four_text">4</string>
-    <string name="five_text">5</string>
-    <string name="six_text">6</string>
-    <string name="one_text">1</string>
-    <string name="two_text">2</string>
-    <string name="three_text">3</string>
-    <string name="zero_text">0</string>
-    <string name="decimal_text">.</string>
+    <string name="seven_text">"7"</string>
+    <string name="eight_text">"8"</string>
+    <string name="nine_text">"9"</string>
+    <string name="four_text">"4"</string>
+    <string name="five_text">"5"</string>
+    <string name="six_text">"6"</string>
+    <string name="one_text">"1"</string>
+    <string name="two_text">"2"</string>
+    <string name="three_text">"3"</string>
+    <string name="zero_text">"0"</string>
+    <string name="decimal_text">"."</string>
 
     <string name="divide_text">"/"</string>
-    <string name="multiply_text">x</string>
+    <string name="multiply_text">"x"</string>
     <string name="add_text">"+"</string>
     <string name="subtract_text">"-"</string>
-    <string name="closing_bracket">)</string>
-    <string name="opening_bracket">(</string>
-    <string name="sin_fun">sin</string>
-    <string name="cos_fun">cos</string>
-    <string name="tan_fun">tan</string>
+    <string name="closing_bracket">")"</string>
+    <string name="opening_bracket">"("</string>
+    <string name="sin_fun">"sin"</string>
+    <string name="cos_fun">"cos"</string>
+    <string name="tan_fun">"tan"</string>
 
-    <string name="sqrt_fun">sqrt</string>
-    <string name="factorial">x!</string>
-    <string name="pi_value">pi</string>
+    <string name="sqrt_fun">"sqrt"</string>
+    <string name="factorial">"x!"</string>
+    <string name="pi_value">"pi"</string>
     <string name="log_base_e">log<sub>e</sub></string>
     <string name="log_base_10">log<sub>10</sub></string>
-    <string name="e">e</string>
-    <string name="is_prime">IsPrime()</string>
+    <string name="e">"e"</string>
+    <string name="is_prime">"IsPrime()"</string>
 
 
     <string name="sin_operation">"sin("</string>

@@ -22,7 +22,7 @@
         android:textColor="@color/white"
         android:cursorVisible="false"
         android:gravity="center|right"
-        android:layout_margin="8dp"
+        android:layout_margin="6dp"
         android:textSize="30dp"
         android:autoSizeTextType="uniform"
         android:maxLines="2"
@@ -190,7 +190,7 @@
                 android:id="@+id/tv7"
                 android:hint="7"
                 android:textColorHint="@color/white"
-                android:textSize="21dp"
+                android:textSize="23dp"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -200,7 +200,7 @@
                 android:id="@+id/tv8"
                 android:textColorHint="@color/white"
 
-                android:textSize="21dp"
+                android:textSize="23dp"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
@@ -210,7 +210,7 @@
                 android:id="@+id/tv9"
                 android:textColorHint="@color/white"
 
-                android:textSize="21dp"
+                android:textSize="23dp"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -283,7 +283,7 @@
                 android:id="@+id/tv4"
                 android:textColorHint="@color/white"
 
-                android:textSize="21dp"
+                android:textSize="23dp"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -293,7 +293,7 @@
                 android:id="@+id/tv5"
                 android:textColorHint="@color/white"
 
-                android:textSize="21dp"
+                android:textSize="23dp"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
@@ -303,7 +303,7 @@
                 android:id="@+id/tv6"
                 android:textColorHint="@color/white"
 
-                android:textSize="21dp"
+                android:textSize="23dp"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -387,7 +387,7 @@
                 android:hint="1"
                 android:id="@+id/tv1"
                 android:textColorHint="@color/white"
-                android:textSize="21dp"
+                android:textSize="23dp"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -397,7 +397,7 @@
                 android:id="@+id/tv2"
                 android:textColorHint="@color/white"
 
-                android:textSize="21dp"
+                android:textSize="23dp"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
@@ -407,7 +407,7 @@
                 android:id="@+id/tv3"
                 android:textColorHint="@color/white"
 
-                android:textSize="21dp"
+                android:textSize="23dp"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -434,15 +434,15 @@
             android:layout_weight="1"
             android:layout_height="0dp">
 
-            <TextView
-                android:id="@+id/tvE"
-                android:hint="@string/e"
-                android:textSize="20dp"
-                android:textColorHint="@color/white"
-                android:gravity="center"
-                android:layout_weight="0.9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+<!--            <TextView-->
+<!--                android:id="@+id/tvE"-->
+<!--                android:hint="@string/e"-->
+<!--                android:textSize="20dp"-->
+<!--                android:textColorHint="@color/white"-->
+<!--                android:gravity="center"-->
+<!--                android:layout_weight="0.9"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"/>-->
 
             <TextView
                 android:hint="@string/is_prime"
@@ -451,7 +451,7 @@
                 android:textColorHint="@color/white"
                 android:textSize="19dp"
                 android:gravity="center"
-                android:layout_weight="1"
+                android:layout_weight="1.8"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"/>
 
