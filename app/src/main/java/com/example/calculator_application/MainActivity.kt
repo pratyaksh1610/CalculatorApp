@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.isDigitsOnly
@@ -17,13 +19,23 @@ import kotlin.math.sqrt
 class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n", "ResourceAsColor")
+    // update result in real time
+    private val textWatcher = object : TextWatcher {
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            calculate()
+        }
 
+        override fun afterTextChanged(s: Editable?) {}
+    }
+
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         etResult.setTextColor(Color.GRAY)
-
+        etResult.addTextChangedListener(textWatcher)
 
         /* handling clicks */
 
@@ -42,7 +54,6 @@ class MainActivity : AppCompatActivity() {
         imPlus_Minus.setOnClickListener {
             try {
                 if (etResult.text.toString().isNotEmpty()) {
-
                     if (tvResult.text.isEmpty()) {
                         if (etResult.text.toString().first() == '-') {
                             tvResult.text = tvResult.text.toString().substring(1)
@@ -58,7 +69,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             } catch (e: NumberFormatException) {
-                tvResult.text = "Error"
+                Log.e("e", "Error")
             }
         }
 
@@ -69,72 +80,84 @@ class MainActivity : AppCompatActivity() {
         }
 
         imEqual.setOnClickListener {
-            calculate()
+            etResult.setText(tvResult.text.toString())
         }
 
         tvPercent.setOnClickListener {
             try {
-                if (etResult.text.toString().isNotEmpty() && (etResult.text.last()
-                        .isDigit() || etResult.text.last() == ')')
+                if (etResult.text.toString().isNotEmpty() && (
+                    etResult.text.last()
+                        .isDigit() || etResult.text.last() == ')'
+                    )
                 ) {
                     if (tvResult.text.isEmpty()) {
-                        if (etResult.text.toString().first() != '-')
+                        if (etResult.text.toString().first() != '-') {
                             tvResult.text = (etResult.text.toString().toDouble() / 100.0).toString()
+                        }
                     } else if (tvResult.text.toString().first() != '-') {
                         val decimalPattern = "([0-9]*)\\.([0-9]*)"
                         val num = tvResult.text.toString().toDouble().toString()
 
                         if (Pattern.matches(decimalPattern, num) || tvResult.text.toString()
-                                .isDigitsOnly()
+                            .isDigitsOnly()
                         ) {
                             val x = num.toDouble() / 100.0
                             tvResult.text = x.toString()
                         }
                     }
+                    etResult.setText(tvResult.text.toString())
                 }
             } catch (e: NumberFormatException) {
-                tvResult.text = "Error"
+                Log.e("e", "Error")
             }
         }
 
-        //Operator Listeners
+        // Operator Listeners
         tvDivide.setOnClickListener {
-            if (etResult.text.toString().isNotEmpty())
-                if (checkFunc(etResult.text.toString()))
+            if (etResult.text.toString().isNotEmpty()) {
+                if (checkFunc(etResult.text.toString())) {
                     etResult.text = etResult.text.append(resources.getString(R.string.divide_text))
+                }
+            }
         }
 
         imMultiply.setOnClickListener {
-            if (etResult.text.toString().isNotEmpty())
-                if (checkFunc(etResult.text.toString()))
+            if (etResult.text.toString().isNotEmpty()) {
+                if (checkFunc(etResult.text.toString())) {
                     etResult.text =
                         etResult.text.append('*')
+                }
+            }
         }
 
         imMinus.setOnClickListener {
-            if (etResult.text.toString().isNotEmpty())
-                if (checkFunc(etResult.text.toString()))
+            if (etResult.text.toString().isNotEmpty()) {
+                if (checkFunc(etResult.text.toString())) {
                     etResult.text =
                         etResult.text.append(resources.getString(R.string.subtract_text))
-
+                }
+            }
         }
 
         tvPlus.setOnClickListener {
-            if (etResult.text.toString().isNotEmpty())
-                if (checkFunc(etResult.text.toString()))
+            if (etResult.text.toString().isNotEmpty()) {
+                if (checkFunc(etResult.text.toString())) {
                     etResult.text = etResult.text.append(resources.getString(R.string.add_text))
+                }
+            }
         }
 
         tvDecimal.setOnClickListener {
-            if (etResult.text.toString().isNotEmpty())
+            if (etResult.text.toString().isNotEmpty()) {
                 if (checkFunc(etResult.text.toString()) && etResult.text.toString()
-                        .last() != ')' && etResult.text.toString().last() != '('
-                )
+                    .last() != ')' && etResult.text.toString().last() != '('
+                ) {
                     etResult.text = etResult.text.append(resources.getString(R.string.decimal_text))
+                }
+            }
         }
 
-
-        //Number Listeners
+        // Number Listeners
         tv7.setOnClickListener {
             etResult.text = etResult.text.append(resources.getString(R.string.seven_text))
         }
@@ -166,20 +189,20 @@ class MainActivity : AppCompatActivity() {
             etResult.text = etResult.text.append(resources.getString(R.string.zero_text))
         }
 
-        //Trigonometric functions
+        // Trigonometric functions
         tvSin.setOnClickListener {
             etResult.text = etResult.text.append(resources.getString((R.string.sin_operation)))
         }
         tvCos.setOnClickListener {
             etResult.text = etResult.text.append(resources.getString((R.string.cos_operation)))
         }
-        //in radians sin cos tan
+        // in radians sin cos tan
 
         tvTan.setOnClickListener {
             etResult.text = etResult.text.append(resources.getString((R.string.tan_operation)))
         }
 
-        //Other functions
+        // Other functions
         tvSqrt.setOnClickListener {
             etResult.text = etResult.text.append(resources.getString((R.string.sqrt_operation)))
         }
@@ -202,14 +225,14 @@ class MainActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Invalid Expression", Toast.LENGTH_SHORT).show()
             }
-
         }
         tvPi.setOnClickListener {
             if (etResult.text.toString().isEmpty() || !etResult.text.toString().last()
-                    .isDigit() && etResult.text.toString()
+                .isDigit() && etResult.text.toString()
                     .last() != ')'
-            )
+            ) {
                 etResult.text = etResult.text.append(resources.getString((R.string.pi)))
+            }
         }
 
         tvLn.setOnClickListener {
@@ -250,7 +273,7 @@ class MainActivity : AppCompatActivity() {
                 if (etResult.text.toString().isEmpty()) {
                     Toast.makeText(this, "Enter a valid integer!", Toast.LENGTH_SHORT).show()
                 } else if (etResult.text.toString().isDigitsOnly() && etResult.text.toString()
-                        .isNotEmpty()
+                    .isNotEmpty()
                 ) {
                     if (isPrime(etResult.text.toString().toInt())) tvResult.text = "1"
                     else tvResult.text = "0"
@@ -269,8 +292,10 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun calculate() {
-        if ((etResult.text.toString().length == 1 && etResult.text.toString()
-                .first() == '(') || etResult.text.toString().isEmpty()
+        if ((
+            etResult.text.toString().length == 1 && etResult.text.toString()
+                .first() == '('
+            ) || etResult.text.toString().isEmpty()
         ) {
             tvResult.text = null
         } else {
@@ -284,28 +309,28 @@ class MainActivity : AppCompatActivity() {
                     tvResult.text = output.toString()
                 }
             } catch (e: EmptyStackException) {
-                tvResult.text = "Error"
+                Log.e("e", "Error")
             } catch (e: IllegalFormatException) {
-                tvResult.text = "Error"
+                Log.e("e", "Error")
             } catch (e: NumberFormatException) {
-                tvResult.text = "Error"
+                Log.e("e", "Error")
             } catch (e: IllegalArgumentException) {
-                tvResult.text = "Error"
+                Log.e("e", "Error")
             } catch (e: NumberFormatException) {
-                tvResult.text = "Error"
+                Log.e("e", "Error")
             } catch (e: ArithmeticException) {
-                tvResult.text = "Error"
+                Log.e("e", "Error")
             }
         }
     }
 }
 
-
 private fun removeLastCharacter(s: Editable): String {
-    return if (s.last() != ' ')
+    return if (s.last() != ' ') {
         s.substring(0, s.length - 1)
-    else
+    } else {
         s.substring(0, s.length - 3)
+    }
 }
 
 private fun checkFunc(s: String): Boolean {
@@ -323,7 +348,7 @@ private fun isPrime(n: Int): Boolean {
 }
 
 private fun getFactorial(x: Long): String {
-    //array for factorial calculation
+    // array for factorial calculation
     val factorials = arrayOf(
         "0",
         "1",

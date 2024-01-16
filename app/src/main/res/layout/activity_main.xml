@@ -9,125 +9,121 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
         android:background="#242530"
         android:gravity="end"
-        android:layout_height="wrap_content">
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/etResult"
-        android:inputType="textMultiLine|textImeMultiLine"
-        android:layout_height="150dp"
-        android:backgroundTint="#242530"
-        android:textColor="@color/white"
-        android:cursorVisible="false"
-        android:gravity="center|right"
-        android:layout_margin="16dp"
-        android:textSize="40dp"
-        android:autoSizeTextType="uniform"
-        android:maxLines="2"
-        android:src="@color/black"
-        android:layout_width="match_parent" />
+        <EditText
+            android:id="@+id/etResult"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_margin="16dp"
+            android:autoSizeTextType="uniform"
+            android:backgroundTint="#242530"
+            android:cursorVisible="false"
+            android:gravity="center|right"
+            android:inputType="textMultiLine|textImeMultiLine"
+            android:maxLines="2"
+            android:src="@color/black"
+            android:textColor="@color/white"
+            android:textSize="40dp" />
 
-    <TextView
-        android:textStyle="bold"
-        android:textFontWeight="180"
-        android:layout_height="100dp"
-        android:textColor="@color/white"
-        android:id="@+id/tvResult"
-        android:layout_margin="16dp"
-        android:textSize="45dp"
-        android:maxLines="1"
-        android:gravity="end"
-        android:src="@color/black"
-        android:layout_width="match_parent" />
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="16dp"
+            android:gravity="end"
+            android:maxLines="1"
+            android:src="@color/black"
+            android:textColor="@color/white"
+            android:textFontWeight="180"
+            android:textSize="45dp"
+            android:textStyle="bold" />
 
-     </LinearLayout>
-
+    </LinearLayout>
 
 
     <!--    2e2f3e-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:background="#242530"
-        android:orientation="vertical"
+        android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_height="0dp">
+        android:background="#242530"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:background="#363746"
             android:layout_width="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_height="0dp">
-
+            android:background="#363746"
+            android:orientation="horizontal">
 
 
             <TextView
-                android:hint="AC"
+                android:id="@+id/tvC"
 
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="AC"
                 android:textAllCaps="false"
                 android:textColorHint="#ffbb00"
-                android:id="@+id/tvC"
-                android:textSize="19dp"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
-
+                android:textSize="19dp" />
 
 
             <TextView
                 android:id="@+id/tvOpenBracket"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="center"
                 android:hint="@string/opening_bracket"
                 android:textAllCaps="false"
                 android:textColorHint="@color/yellow"
-                android:textSize="27dp"
-                android:gravity="center"
-                android:layout_weight="0.5"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
-
+                android:textSize="27dp" />
 
 
             <TextView
                 android:id="@+id/tvCloseBracket"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="center"
                 android:hint="@string/closing_bracket"
                 android:textAllCaps="false"
                 android:textColorHint="@color/yellow"
-                android:textSize="27dp"
-                android:gravity="center"
-                android:layout_weight="0.5"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:textSize="27dp" />
 
 
             <ImageView
                 android:id="@+id/tvDivide"
-                android:src="@drawable/divide_1"
-                android:scaleType="center"
-                app:tint="#ffbb00"
-                android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="center"
+                android:src="@drawable/divide_1"
+                app:tint="#ffbb00" />
 
             <ImageView
                 android:id="@+id/imMultiply"
-                android:src="@drawable/close"
-                android:scaleType="center"
-                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="center"
+                android:src="@drawable/close"
                 app:tint="#ffbb00" />
 
             <ImageView
                 android:id="@+id/imBack"
-                android:src="@drawable/backspace"
-                app:tint="#ffbb00"
-                android:scaleType="center"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:scaleType="center"
+                android:src="@drawable/backspace"
+                app:tint="#ffbb00" />
 
 
         </LinearLayout>
@@ -135,197 +131,208 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_height="0dp">
+            android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/tv7"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:hint="@string/seven_text"
                 android:textColorHint="@color/white"
-                android:textSize="23dp"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:textSize="23dp" />
+
             <TextView
-                android:hint="@string/eight_text"
                 android:id="@+id/tv8"
-                android:textColorHint="@color/white"
-
-                android:textSize="23dp"
-                android:gravity="center"
-                android:layout_weight="1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="@string/eight_text"
+                android:textColorHint="@color/white"
+                android:textSize="23dp" />
+
             <TextView
-                android:hint="@string/nine_text"
                 android:id="@+id/tv9"
-                android:textColorHint="@color/white"
-                android:textSize="23dp"
-                android:gravity="center"
-                android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="@string/nine_text"
+                android:textColorHint="@color/white"
+                android:textSize="23dp" />
 
             <ImageView
-                android:hint="-"
                 android:id="@+id/imMinus"
-                app:tint="#ffbb00"
-                android:background="#363746"
-                android:src="@drawable/minus"
-                android:scaleType="center"
-                android:gravity="center"
-                android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#363746"
+                android:gravity="center"
+                android:hint="-"
+                android:scaleType="center"
+                android:src="@drawable/minus"
+                app:tint="#ffbb00" />
 
         </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_height="0dp">
+            android:orientation="horizontal">
+
             <TextView
-                android:hint="@string/four_text"
                 android:id="@+id/tv4"
-                android:textColorHint="@color/white"
-
-                android:textSize="23dp"
-                android:gravity="center"
-                android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="@string/four_text"
+                android:textColorHint="@color/white"
+                android:textSize="23dp" />
+
             <TextView
-                android:hint="@string/five_text"
                 android:id="@+id/tv5"
-                android:textColorHint="@color/white"
-
-                android:textSize="23dp"
-                android:gravity="center"
-                android:layout_weight="1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:hint="@string/six_text"
-                android:id="@+id/tv6"
-                android:textColorHint="@color/white"
+                android:layout_height="wrap_content"
 
-                android:textSize="23dp"
-                android:gravity="center"
                 android:layout_weight="1"
+                android:gravity="center"
+                android:hint="@string/five_text"
+                android:textColorHint="@color/white"
+                android:textSize="23dp" />
+
+            <TextView
+                android:id="@+id/tv6"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="@string/six_text"
+                android:textColorHint="@color/white"
+                android:textSize="23dp" />
 
             <ImageView
-                android:hint="+"
                 android:id="@+id/tvPlus"
-                android:background="#363746"
-                android:src="@drawable/add"
-                app:tint="#ffbb00"
-                android:scaleType="center"
-                android:gravity="center"
-                android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#363746"
+                android:gravity="center"
+                android:hint="+"
+                android:scaleType="center"
+                android:src="@drawable/add"
+                app:tint="#ffbb00" />
 
         </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_height="0dp">
-            <TextView
-                android:hint="@string/one_text"
-                android:id="@+id/tv1"
-                android:textColorHint="@color/white"
-                android:textSize="23dp"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
-            <TextView
-                android:hint="@string/two_text"
-                android:id="@+id/tv2"
-                android:textColorHint="@color/white"
+            android:orientation="horizontal">
 
-                android:textSize="23dp"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
             <TextView
-                android:hint="@string/three_text"
-                android:id="@+id/tv3"
-                android:textColorHint="@color/white"
-                android:textSize="23dp"
-                android:gravity="center"
-                android:layout_weight="1"
+                android:id="@+id/tv1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="@string/one_text"
+                android:textColorHint="@color/white"
+                android:textSize="23dp" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="@string/two_text"
+                android:textColorHint="@color/white"
+                android:textSize="23dp" />
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="@string/three_text"
+                android:textColorHint="@color/white"
+                android:textSize="23dp" />
 
 
             <ImageView
                 android:id="@+id/tvPercent"
-                android:hint="%"
-                android:background="#363746"
-                android:src="@drawable/percent"
-                app:tint="#ffbb00"
-                android:scaleType="center"
-                android:gravity="center"
-                android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#363746"
+                android:gravity="center"
+                android:hint="%"
+                android:scaleType="center"
+                android:src="@drawable/percent"
+                app:tint="#ffbb00" />
         </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_height="0dp">
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/imPlus_Minus"
-                android:src="@drawable/plus_slash_minus"
-                android:scaleType="center"
-                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="center"
+                android:src="@drawable/plus_slash_minus"
                 app:tint="#ffbb00" />
+
             <TextView
+                android:id="@+id/tv0"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:hint="@string/zero_text"
                 android:textColorHint="@color/white"
-                android:id="@+id/tv0"
-                android:textSize="23dp"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
+                android:textSize="23dp" />
+
             <TextView
-                android:hint="@string/decimal_text"
                 android:id="@+id/tvDecimal"
-                android:textColorHint="@color/white"
-                android:textSize="23dp"
-                android:gravity="center"
-                android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="@string/decimal_text"
+                android:textColorHint="@color/white"
+                android:textSize="23dp" />
 
             <ImageView
-                android:hint="-"
                 android:id="@+id/imEqual"
-                app:tint="#ffffff"
-                android:background="#ffbb00"
-                android:src="@drawable/equal"
-                android:scaleType="center"
-                android:gravity="center"
-                android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#ffbb00"
+                android:gravity="center"
+                android:hint="-"
+                android:scaleType="center"
+                android:src="@drawable/equal"
+                app:tint="#ffffff" />
 
 
         </LinearLayout>
@@ -333,7 +340,7 @@
 
     </LinearLayout>
 
-<!--extra-->
+    <!--extra-->
 
     <LinearLayout
         android:layout_width="0dp"
@@ -342,59 +349,72 @@
         <TextView
             android:id="@+id/tvSin"
             android:layout_width="0dp"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp" />
+
         <TextView
             android:id="@+id/tvCos"
             android:layout_width="0dp"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp" />
+
         <TextView
             android:id="@+id/tvTan"
             android:layout_width="0dp"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp" />
+
         <TextView
             android:id="@+id/tvPi"
             android:layout_width="0dp"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp" />
+
         <TextView
             android:id="@+id/tvFactorial"
             android:layout_width="0dp"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp" />
+
         <TextView
             android:id="@+id/tvSqrt"
             android:layout_width="0dp"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp" />
+
         <TextView
             android:id="@+id/tvLn"
             android:layout_width="0dp"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp" />
+
         <TextView
             android:id="@+id/tvLog_10"
             android:layout_width="0dp"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp" />
+
         <TextView
-        android:id="@+id/tvE"
-        android:layout_width="0dp"
-        android:layout_height="0dp"/>
+            android:id="@+id/tvE"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+
         <TextView
             android:id="@+id/tvEx"
             android:layout_width="0dp"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp" />
+
         <TextView
             android:id="@+id/tvx2"
             android:layout_width="0dp"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp" />
+
         <TextView
             android:id="@+id/tvCubeRoot"
             android:layout_width="0dp"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp" />
+
         <TextView
-        android:id="@+id/tv10x"
-        android:layout_width="0dp"
-        android:layout_height="0dp"/>
+            android:id="@+id/tv10x"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+
         <TextView
             android:id="@+id/tvPrime"
             android:layout_width="0dp"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp" />
 
     </LinearLayout>
 
